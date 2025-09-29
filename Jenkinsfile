@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t web-app .'
+        sh 'ecgo "Building..."'
       }
     }
     stage('Test') {
