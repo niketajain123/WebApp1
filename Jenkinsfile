@@ -1,9 +1,9 @@
 pipeline {
-  agent any
+  agent { label 'build-node' }
   stages {
     stage('Build') {
       steps {
-        sh 'echo building...'
+        sh 'docker build -t web-app .'
       }
     }
     stage('Test') {
