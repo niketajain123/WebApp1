@@ -1,9 +1,9 @@
 pipeline {
-  agent { label 'build-node' }
+  agent any
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t web-app .'
+        sh 'echo building...'
       }
     }
     stage('Test') {
@@ -14,6 +14,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'echo "Deploying app..."'
+        input message: "wanna deploy", ok: "Merge"
       }
     }
   }
